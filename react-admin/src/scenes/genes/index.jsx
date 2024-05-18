@@ -30,11 +30,20 @@ const Genes = React.memo(function Genes() {
   const trimmedList = useMemo(() => uniqueData.map(item => item.replace(/[-.]$/g, '')), [uniqueData]);
 
   const [triggerUpdate, setTriggerUpdate] = useState(false);
+  const [prevTrimmedList, setPrevTrimmedList] = useState();
 
-  // Call the update function with trimmedList
-  useEffect(() => {
+useEffect(() => {
+  if (JSON.stringify(trimmedList) !== JSON.stringify(prevTrimmedList)) {
     updateGeneNames(trimmedList);
-  }, [trimmedList]);
+    setPrevTrimmedList(trimmedList);
+  }
+}, [trimmedList, prevTrimmedList]);
+
+
+  // // Call the update function with trimmedList
+  // useEffect(() => {
+  //   updateGeneNames(trimmedList);
+  // }, [trimmedList]);
 
   // useMemo(() => setGeneNames(trimmedList), [trimmedList]);
 

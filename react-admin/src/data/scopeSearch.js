@@ -1,11 +1,13 @@
 var neo4j = require('neo4j-driver');
 
 const scopeSearch = async (arrayName, scope) => {
-    
+    const URI = "bolt://localhost:7687"
+    const USER = "neo4j"
+    const PASSWORD = "458458Yoyo"
     let driver
 
     try {
-        driver = neo4j.driver(process.env.NEO4J_URI, neo4j.auth.basic(process.env.NEO4J_USR, process.env.NEO4J_PSWD))
+        driver = neo4j.driver(URI, neo4j.auth.basic(USER, PASSWORD))
         const serverInfo = await driver.getServerInfo()
         console.log('Connection established');
         console.log(serverInfo);
@@ -35,8 +37,7 @@ const scopeSearch = async (arrayName, scope) => {
             rels.forEach(rel => {
                 const start = rel.start.toNumber();
                 const end = rel.end.toNumber();
-                const pathwayList = rel.properties.Pathway.split('-');
-                const pathway = pathwayList[pathwayList.length-1];
+                const pathway = rel.properties.Pathway;
                 console.log({start},{end},{pathway});
 
                 if (start && end && pathway) {
