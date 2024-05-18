@@ -23,6 +23,7 @@
     "axios": "^1.6.8",
     "d3": "^7.9.0",
     "formik": "^2.4.6",
+    "neo4j-driver": "^5.20.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-pro-sidebar": "^0.7.1",
