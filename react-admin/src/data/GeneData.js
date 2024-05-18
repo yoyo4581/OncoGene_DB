@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react';
 import Axios from "axios";
 import React from 'react';
-import {baseUrl} from '../baseUrl';
+import baseUrl from '../baseUrl';
 
 export function useGeneData(ids) {
     const [geneData, setGeneData] = useState([]);
