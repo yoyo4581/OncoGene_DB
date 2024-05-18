@@ -5,7 +5,7 @@ export default function useQuery(primaryType, secondaryType, classification, loc
     const [listOfIds, setListOfIds] = useState([]);
 
     useEffect(() => {
-        Axios.get(`http://localhost:3001/getIds?primaryType=${primaryType}&secondaryType=${secondaryType}&classification=${classification}&location=${location}`).then((response) => {
+        Axios.get(`${baseUrl}/getIds?primaryType=${primaryType}&secondaryType=${secondaryType}&classification=${classification}&location=${location}`).then((response) => {
             setListOfIds(response.data)
         });
     }, [primaryType, secondaryType, classification, location]);
@@ -19,7 +19,7 @@ export function useQueryId(ids) {
     useEffect(() => {
         if (ids && ids.length > 0) { // Only make the requests if ids are provided
             Promise.all(ids.map(id => 
-                Axios.get(`http://localhost:3001/getQuery/${id}`)
+                Axios.get(`${baseUrl}/getQuery/${id}`)
             )).then((responses) => {
                 const data = responses.map(response => response.data);
                 setQueryData(data);

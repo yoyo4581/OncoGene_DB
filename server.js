@@ -4,6 +4,7 @@ const mongoose = require('mongoose')
 const LabelsModel = require('./models/Labels')
 const QueryModel = require("./models/Query")
 const GeneModel = require("./models/Genes")
+const path = require("path");
 
 const cors = require('cors');
 
@@ -68,6 +69,12 @@ app.post("/createLabel", async (req, res) => {
     await newLabel.save();
 
     res.json(Lab);
+});
+
+// production
+app.use(express.static("./react-admin/build"));
+app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "react-admin", "build", "index.html"));
 });
 
 app.listen(3001, () => {

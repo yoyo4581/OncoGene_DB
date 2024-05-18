@@ -5,7 +5,7 @@ export default function useLabels() {
     const [listOfLabels, setListOfLabels] = useState([]);
 
     useEffect(() => {
-        Axios.get("http://localhost:3001/getLabels").then((response) => {
+        Axios.get(`${baseUrl}/getLabels`).then((response) => {
             setListOfLabels(response.data)
         });
     }, []);

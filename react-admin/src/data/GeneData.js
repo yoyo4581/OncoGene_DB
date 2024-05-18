@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react';
 import Axios from "axios";
 import React from 'react';
+import {baseUrl} from '../baseUrl';
 
 export function useGeneData(ids) {
     const [geneData, setGeneData] = useState([]);
@@ -11,7 +12,7 @@ export function useGeneData(ids) {
             setIsLoading(true);
             console.log(ids);
             Promise.all(ids.map(id => 
-                Axios.get(`http://localhost:3001/getGenes/${id}`)
+                Axios.get(`${baseUrl}/getGenes/${id}`)
             )).then((responses) => {
                 const data = responses.map(response => response.data);
                 console.log(data);
