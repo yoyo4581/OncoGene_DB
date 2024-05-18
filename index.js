@@ -5,6 +5,8 @@ const LabelsModel = require('./models/Labels')
 const QueryModel = require("./models/Query")
 const GeneModel = require("./models/Genes")
 const path = require('path')
+require('dotenv').config()
+
 
 const cors = require('cors');
 
