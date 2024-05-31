@@ -2,9 +2,9 @@ var neo4j = require('neo4j-driver');
 
 const executeNMatch = async (arrayName) => {
   // URI examples: 'neo4j://localhost', 'neo4j+s://xxx.databases.neo4j.io'
-  const URI = "bolt://localhost:7687"
-  const USER = "neo4j"
-  const PASSWORD = "458458Yoyo"
+  const URI = process.env.NEO4J_URI
+  const USER = process.env.NEO4J_USR
+  const PASSWORD = process.env.NEO4J_PSWD
   let driver
 
   try {
