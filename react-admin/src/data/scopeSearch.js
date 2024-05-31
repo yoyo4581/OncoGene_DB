@@ -1,9 +1,9 @@
 var neo4j = require('neo4j-driver');
 
 const scopeSearch = async (arrayName, scope) => {
-    const URI = process.env.NEO4J_URI
-    const USER = process.env.NEO4J_USR
-    const PASSWORD = process.env.NEO4J_PSWD
+    const URI = process.env.REACT_APP_NEO4J_URI
+    const USER = process.env.REACT_APP_NEO4J_USR
+    const PASSWORD = process.env.REACT_APP_NEO4J_PSWD
     let driver
 
     try {

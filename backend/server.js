@@ -5,14 +5,14 @@ const LabelsModel = require('./models/Labels')
 const QueryModel = require("./models/Query")
 const GeneModel = require("./models/Genes")
 const path = require("path");
-const port = process.env.PORT || 3001;
+const port = process.env.REACT_APP_PORT || 3001;
 
 const cors = require('cors');
 
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect(process.env.DATABASE_URI,
+mongoose.connect(process.env.REACT_APP_DATABASE_URI,
     {
         dbName: 'Cancer_db',
     }
