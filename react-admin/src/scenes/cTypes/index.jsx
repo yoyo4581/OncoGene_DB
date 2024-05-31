@@ -1,15 +1,13 @@
-import { Box, useTheme, Autocomplete, TextField, Chip } from "@mui/material";
+import { Box, useTheme, Autocomplete, TextField } from "@mui/material";
 import { tokens } from "../../theme";
 import Header from "../../components/Header";
 import MyContext from '../../MyContext';
 import React, { useContext } from 'react';
-import useLabels from "../../data/LabelsData";
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 
 const Types = () => {
     const theme = useTheme();
-    const colors = tokens(theme.palette.mode);
 
     // const labels = useLabels();
     // const [dataLabels, setDataLabels] = useState([]);

@@ -8,7 +8,7 @@ const GeneDataContext = React.createContext({
 
 export const GeneDataContextProvider = ({ children }) => {
   const [geneData, setGeneData] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading] = useState(false);
 
   const updateGeneData = (newGeneData) => {
     setGeneData(newGeneData);

@@ -11,14 +11,12 @@ import Genes from "./scenes/genes";
 // import Form from "./scenes/form";
 // import Line from "./scenes/line";
 // import Pie from "./scenes/pie";
-import FAQ from "./scenes/faq";
 import PathNet from "./scenes/pathwayNet";
 // import Geography from "./scenes/geography";
 // import Calendar from "./scenes/calendar";
 import MyContext from './MyContext';
 import useLabels from "./data/LabelsData";
-import { useEffect, useState } from 'react';
-import useQuery from './data/QueryLabels';
+import { useState } from 'react';
 import ChordNet from './scenes/chordNet'
 
 
