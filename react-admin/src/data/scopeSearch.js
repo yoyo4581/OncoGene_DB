@@ -1,7 +1,7 @@
 var neo4j = require('neo4j-driver');
 
 const scopeSearch = async (arrayName, scope) => {
-    const URI = "bolt+s://40.112.186.250:7999"
+    const URI = "bolt+s://kg-pathway.westus.cloudapp.azure.com:7999"
     const USER = "neo4j"
     const PASSWORD = "458458Yoyo"
     let driver
