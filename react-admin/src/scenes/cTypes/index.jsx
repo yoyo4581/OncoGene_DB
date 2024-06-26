@@ -20,7 +20,7 @@ const Types = () => {
     const context = useContext(MyContext);
     const {labels, dataLabels, setDataLabels, primaryType,
         setPrimaryType, secondaryTypes, setSecondaryTypes, classification,
-        setClassification, location, setLocation, selectedIds, setSelectedIds
+        setClassification, location, setLocation, selectedIds, setSelectedIds, experimentsCount, publicationsCount
     } = context;
 
     useEffect(() => {
@@ -35,6 +35,7 @@ const Types = () => {
       });
       setDataLabels(updatedLabels);
   }, [labels]);
+
   
 
     const resetDependentStates = (newPrimaryType, newSecondaryTypes, newClassification) => {
@@ -72,18 +73,18 @@ const Types = () => {
     
     return (
         <Box m="20px">
-            <div>Selected IDs: {selectedIds.join(', ')}</div>
+            {/* <div>Selected IDs: {selectedIds.join(', ')}</div> */}
             <Box mb={5}>
                 <Header title="Select Cancer Dataset" subtitle="" />
-                <Autocomplete
-                    multiple
-                    options={primaryTypes}
-                    value={primaryType}
-                    onChange={(event, newValue) => {
-                        setPrimaryType(newValue);
-                    }}
-                    renderInput={(params) => <TextField {...params} label="Primary Cancer Type" />}
-                />
+                    <Autocomplete
+                        multiple
+                        options={primaryTypes}
+                        value={primaryType}
+                        onChange={(event, newValue) => {
+                            setPrimaryType(newValue);
+                        }}
+                        renderInput={(params) => <TextField {...params} label="Primary Cancer Type" />}
+                    />
             </Box>
             <Box mb={5}>
                 <Autocomplete
@@ -117,6 +118,12 @@ const Types = () => {
                     }}
                     renderInput={(params) => <TextField {...params} label="Location" />}
                 />
+            </Box>
+            <Box mb={5}>
+                <div style={{ fontSize: 'small' }}>
+                        <div>Number of Experiments: {experimentsCount}</div>
+                        <div>Number of Publications: {publicationsCount}</div>
+                </div>
             </Box>
         </Box>
     );

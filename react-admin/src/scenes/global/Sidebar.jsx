@@ -23,7 +23,7 @@ const Item = ({ title, to, icon, selected, setSelected}) => {
     return (
         <MenuItem 
         active={selected === title} 
-        style={{color: colors.grey[100]}} 
+        style={{color: colors.blueAccent[1000]}} 
         onClick={()=> setSelected(title)} 
         icon={icon}
         >
@@ -43,7 +43,7 @@ const Sidebar = () => {
         <Box
             sx={{
                 "& .pro-sidebar-inner": {
-                    background: `${colors.primary[400]} !important`,
+                    background: `${colors.grey[1000]} !important`,
                 },
                 "& .pro-icon-wrapper": {
                     backgroundColor: "transparent !important",
@@ -67,7 +67,7 @@ const Sidebar = () => {
                         icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
                         style={{
                             margin: "10px 0 20px 0",
-                            color: colors.grey[100],
+                            color: colors.grey[1000],
                         }}
                     >
                         {!isCollapsed && (
@@ -77,7 +77,7 @@ const Sidebar = () => {
                                 alignItems="center"
                                 ml="15px"
                             >
-                                <Typography variant="h3" color={colors.grey[100]}> 
+                                <Typography variant="h3" color={colors.grey[1000]}> 
                                 ADMINIS
                                 </Typography>
                                 <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
@@ -124,7 +124,7 @@ const Sidebar = () => {
                         />
                         <Typography
                             variant="h6"
-                            color={colors.grey[300]}
+                            color={colors.grey[100]}
                             sx={{ m: "15px 0 5px 20px" }}
                         >
                             Data
@@ -152,7 +152,7 @@ const Sidebar = () => {
                         />
                         <Typography
                             variant="h6"
-                            color={colors.grey[300]}
+                            color={colors.grey[100]}
                             sx={{ m: "15px 0 5px 20px" }}
                         >
                             Charts

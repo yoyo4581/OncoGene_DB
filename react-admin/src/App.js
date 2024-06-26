@@ -16,6 +16,7 @@ import PathNet from "./scenes/pathwayNet";
 // import Calendar from "./scenes/calendar";
 import MyContext from './MyContext';
 import useLabels from "./data/LabelsData";
+import useStatsData from './data/statsData';
 import { useState } from 'react';
 import ChordNet from './scenes/chordNet'
 
@@ -55,9 +56,13 @@ function App() {
       setSelectedPathways(newSelectedNodes);
     }
 
+    // Call the useStatsData hook with the current selections
+    const { experimentsCount, publicationsCount } = useStatsData(primaryType, secondaryTypes, classification, location);
+    
+
   return (
     <MyContext.Provider value={{ labels, dataLabels, setDataLabels, primaryType, setPrimaryType, primaryTypes, secondaryTypes, setSecondaryTypes, secondaryTypesOptions, classification, classificationOptions, setClassification, location, setLocation, locationOptions, selectedIds, setSelectedIds,
-      selectedExpIds, setSelectedExpIds, geneNames, setGeneNames, updateGeneNames, updateSelectedNodes, selectedNodes, selectedPathways, setSelectedPathways, updateSelectedPathway}}>
+      selectedExpIds, setSelectedExpIds, geneNames, setGeneNames, updateGeneNames, updateSelectedNodes, selectedNodes, selectedPathways, setSelectedPathways, updateSelectedPathway, experimentsCount, publicationsCount}}>
       <ColorModeContext.Provider value = {colorMode}>
         <ThemeProvider theme={theme}>
           <CssBaseline />

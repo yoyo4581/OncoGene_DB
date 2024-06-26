@@ -72,6 +72,7 @@ export const tokens = (mode) => ({
             700: "#a3a3a3",
             800: "#c2c2c2",
             900: "#e0e0e0",
+            1000: "#ECD5BB"
         },
         primary: {
             100: "#040509",
@@ -116,6 +117,7 @@ export const tokens = (mode) => ({
             700: "#a4a9fc",
             800: "#c3c6fd",
             900: "#e1e2fe",
+            1000: "#710117"
         },
     }),
 });
@@ -130,18 +132,18 @@ export const themeSettings = (mode) => {
             ...(mode === 'dark'
                 ? {
                     primary: {
-                        main: colors.primary[500],
+                        main: colors.primary[100],
                     },
                     secondary: {
-                        main: colors.greenAccent[500],
+                        main: colors.greenAccent[100],
                     },
                     neutral: {
-                        dark: colors.grey[700],
+                        dark: colors.grey[100],
                         main: colors.grey[500],
-                        light: colors.grey[100]
+                        light: colors.grey[700]
                     },
                     background: {
-                        default: colors.primary[500],
+                        default: colors.primary[700],
                     }
                 } : {
                     primary: {
@@ -156,7 +158,7 @@ export const themeSettings = (mode) => {
                         light: colors.grey[100]
                     },
                     background: {
-                        default: "#fcfcfc",
+                        default: "#FFFFFF",
                     } ,
                 }),
         },
