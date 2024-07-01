@@ -98,9 +98,11 @@ const PathNet = () => {
         <Box m="20px">
             <Header title="Pathway Network Chart" subtitle="Network display of Pathways" />
             {/* <Typography variant="h6">Gene data: {JSON.stringify({finaldata})}</Typography> */}
-            <Box height="100vh">
-                <NetHigher data={finaldata} />
-            </Box>
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <Box height="100vh">
+                    <NetHigher data={finaldata} />
+                </Box>
+            </div>
         </Box>
     );
 }

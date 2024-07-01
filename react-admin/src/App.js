@@ -34,6 +34,7 @@ function App() {
     const [location, setLocation] = useState([]);
     const [selectedIds, setSelectedIds] = useState([]);
     const [selectedExpIds, setSelectedExpIds] = useState([]);
+    const [geneData, setGeneData] = useState([]);
     const [geneNames, setGeneNames] = useState([]);
     const [selectedNodes, setSelectedNodes] = useState([]);
     const [selectedPathways, setSelectedPathways] = useState([]);
@@ -46,6 +47,11 @@ function App() {
     // Define a function to update geneNames
     const updateGeneNames = (newGeneNames) => {
       setGeneNames(newGeneNames);
+    };
+
+    // Define a function to update geneNames
+    const updateGeneData = (geneData) => {
+      setGeneData(geneData);
     };
 
     const updateSelectedNodes = (newSelectedNodes) =>{
@@ -62,7 +68,7 @@ function App() {
 
   return (
     <MyContext.Provider value={{ labels, dataLabels, setDataLabels, primaryType, setPrimaryType, primaryTypes, secondaryTypes, setSecondaryTypes, secondaryTypesOptions, classification, classificationOptions, setClassification, location, setLocation, locationOptions, selectedIds, setSelectedIds,
-      selectedExpIds, setSelectedExpIds, geneNames, setGeneNames, updateGeneNames, updateSelectedNodes, selectedNodes, selectedPathways, setSelectedPathways, updateSelectedPathway, experimentsCount, publicationsCount}}>
+      selectedExpIds, setSelectedExpIds, geneNames, setGeneNames, updateGeneNames, updateSelectedNodes, selectedNodes, selectedPathways, setSelectedPathways, updateSelectedPathway, updateGeneData, geneData, experimentsCount, publicationsCount}}>
       <ColorModeContext.Provider value = {colorMode}>
         <ThemeProvider theme={theme}>
           <CssBaseline />
@@ -75,14 +81,8 @@ function App() {
                 <Route path='/cTypes' element={<Types />} />
                 <Route path='/genes' element={<Genes />} />
                 <Route path='/experiments' element={<Experiments />} />
-                {/* <Route path='/form' element={<Form />} /> */}
                 <Route path='/pathwayNet' element={<PathNet />} />
                 <Route path='/chordNet' element={<ChordNet />} />
-                {/* <Route path='/line' element={<Line />} /> */}
-                {/* <Route path='/faq' element={<FAQ />} /> */}
-                {/* <Route path='/geography' element={<Geography />} /> */}
-                {/* <Route path='/calendar' element={<Calendar />} /> */}
-
               </Routes>
             </main>
           </div>

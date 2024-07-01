@@ -47,11 +47,13 @@ const ChordNet = () => {
     return (
         <Box m="20px">
             <Header title="Scope-Search Pathway ChordDiagram" subtitle="Explore Overlapping Pathways in Selected Network Chart." />
-            {/* <Typography variant="h6">Gene data: {JSON.stringify({finaldata})}</Typography> */}
-            <Box height="50vh">
-                {/* Render your chord diagram component with the slider */}
-                <ChordDiagramWithSlider data={breadthPath} updateData={updateData} />
-            </Box>
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+                {/* <Typography variant="h6">Gene data: {JSON.stringify({finaldata})}</Typography> */}
+                <Box height="75vh">
+                    {/* Render your chord diagram component with the slider */}
+                    <ChordDiagramWithSlider data={breadthPath} updateData={updateData} />
+                </Box>
+            </div>
         </Box>
     );
 }

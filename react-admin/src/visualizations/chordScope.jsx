@@ -1,6 +1,21 @@
 import React, { useEffect, useState, useRef } from 'react';
 import * as d3 from 'd3';
 
+function wrapOnDash(text) {
+    text.each(function() {
+        var text = d3.select(this),
+            parts = text.text().split('-'), // split on dash
+            tspan = text.text(null).append("tspan").attr("x", 0).attr("dy", "0em");
+        parts.forEach((part, i) => {
+            if (i > 0) {
+                tspan = text.append("tspan").attr("x", 0).attr("dy", "1.2em").text('-' + part); // adjust dy as needed
+            } else {
+                tspan.text(part);
+            }
+        });
+    });
+}
+
 
 const ChordDiagramWithSlider = ({ data, updateData }) => {
     const [sliderValue, setSliderValue] = useState(2);
@@ -17,9 +32,10 @@ const ChordDiagramWithSlider = ({ data, updateData }) => {
         // Remove old SVG
         d3.select(ref.current).selectAll('*').remove();
 
-    const width = 1080;
+    const svgHeight = window.innerHeight *0.7; // 75% of window height
+    const width = svgHeight;
     const height = width;
-    const innerRadius = Math.min(width, height) * 0.3 - 90;
+    const innerRadius = Math.min(width, height) * 0.3;
     const outerRadius = innerRadius + 10;
   
     // Compute a dense matrix from the weighted links in data.
@@ -81,9 +97,10 @@ const ChordDiagramWithSlider = ({ data, updateData }) => {
             ${d.angle > Math.PI ? "rotate(180)" : ""}
         `)
         .attr("text-anchor", d => d.angle > Math.PI ? "end" : null)
-        .attr("font-size", "14px") // Adjust the font size here
+        .attr("font-size", "9px") // Adjust the font size here
         .attr("fill", "white") // Adjust the font color here
-        .text(d => names[d.index]);
+        .text(d => names[d.index])
+        .call(wrapOnDash); // Use the new wrap function
 
   
     group.append("title")
@@ -113,16 +130,14 @@ const ChordDiagramWithSlider = ({ data, updateData }) => {
 
     return (
         <div>
-            <div style={{width: '720px', height: '720px'}}>
-                <svg ref={ref} />
-                <input
-                    type="range"
-                    min={1}
-                    max={10} // Set the maximum value based on your requirement
-                    value={sliderValue}
-                    onChange={handleSliderChange}
-                />
-            </div>
+            <svg ref={ref} />
+            <input
+                type="range"
+                min={1}
+                max={10} // Set the maximum value based on your requirement
+                value={sliderValue}
+                onChange={handleSliderChange}
+            />
         </div>
     );
 };

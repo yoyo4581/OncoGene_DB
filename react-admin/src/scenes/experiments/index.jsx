@@ -98,10 +98,12 @@ const Exp = () => {
 
   return (
       <Box m="20px">
-        <Header
-          title="Experimental Data"
-          subtitle="List of Experimental Methods and Source Publications"
-        />
+        {/* <div style={{ display: 'flex', justifyContent: 'center'}}> */}
+          <Header
+            title="Experimental Data"
+            subtitle="List of Experimental Methods and Source Publications"
+          />
+        {/* </div> */}
         <Typography variant="h6">{queryData.ids}</Typography>
         {/* Rest of your code... */}
         <Box
