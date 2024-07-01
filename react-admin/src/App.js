@@ -38,6 +38,7 @@ function App() {
     const [geneNames, setGeneNames] = useState([]);
     const [selectedNodes, setSelectedNodes] = useState([]);
     const [selectedPathways, setSelectedPathways] = useState([]);
+    const [selected, setSelected] = useState("Select Cancer Types");
 
     const primaryTypes = [];
     const secondaryTypesOptions = [];
@@ -73,12 +74,12 @@ function App() {
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <div className="app">
-            <Sidebar />
+            <Sidebar selected={selected} setSelected={setSelected} />
             <main className="content">
-              <Topbar />
+              <Topbar selected={selected}/>
               <Routes>
-                <Route path='/' element={<Dashboard />} />
-                <Route path='/cTypes' element={<Types />} />
+                {/* <Route path='/' element={<Dashboard />} /> */}
+                <Route path='/' element={<Types />} />
                 <Route path='/genes' element={<Genes />} />
                 <Route path='/experiments' element={<Experiments />} />
                 <Route path='/pathwayNet' element={<PathNet />} />

@@ -97,7 +97,7 @@ function NetHigher({ data }) {
         node.filter(n => n.group === group)
         .transition()
         .duration(200)
-        .attr("r", 10); // Increase size to 10
+        .attr("r", 4); // Increase size to 10
 
         // Change fill color to visible when hovered
         d3.select(this)

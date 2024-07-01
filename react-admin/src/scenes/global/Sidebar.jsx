@@ -33,11 +33,10 @@ const Item = ({ title, to, icon, selected, setSelected}) => {
     )
 }
 
-const Sidebar = () => {
+const Sidebar = ({ selected, setSelected }) => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
     const [isCollapsed, setIsCollapsed] = useState(false);
-    const [selected, setSelected] = useState("Dashboard");
 
     return (
         <Box
@@ -115,13 +114,13 @@ const Sidebar = () => {
                     )}
                     
                     <Box paddingLeft={isCollapsed ? undefined: "10%"}>
-                        <Item
+                        {/* <Item
                             title="Dashboard"
                             to="/"
                             icon={<HomeOutlinedIcon />}
                             selected={selected}
                             setSelected={setSelected}
-                        />
+                        /> */}
                         <Typography
                             variant="h6"
                             color={colors.grey[100]}
@@ -131,7 +130,7 @@ const Sidebar = () => {
                         </Typography>
                         <Item
                             title="Select Cancer Types"
-                            to="/cTypes"
+                            to="/"
                             icon={<PeopleOutlinedIcon />}
                             selected={selected}
                             setSelected={setSelected}

@@ -138,7 +138,11 @@ const ChordDiagramWithSlider = ({ data, updateData }) => {
                 value={sliderValue}
                 onChange={handleSliderChange}
             />
+            <div>
+                {'Depth First Search: '+ sliderValue}
+            </div>
         </div>
+        
     );
 };
 
